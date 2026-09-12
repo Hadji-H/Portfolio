@@ -13,8 +13,8 @@
     --grey-blue: #1f2937;
     --border-c: rgba(148, 163, 184, 0.15);
 
-    --font-body: "Inter", sans-serif;
-    --font-heading: "Space Grotesk", sans-serif;
+    --font-body: "Montserrat", sans-serif;
+    --font-heading: "Montserrat", sans-serif;
 
     --radius: 12px;
     --transition: 0.25s ease;
@@ -484,7 +484,43 @@ footer > p {
     font-size: 0.9rem;
 }
 
+#projects {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 3rem 0;
+}
 
+.project-card {
+    padding: 2rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-c);
+    border-radius: var(--radius);
+    transition: transform var(--transition), border-color var(--transition);
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-c);
+}
+
+.project-card h3 {
+    margin-bottom: 0.5rem;
+}
+
+.project-card p {
+    margin-bottom: 1rem;
+}
+
+.project-card a {
+    color: var(--accent-hover);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.project-card a:hover {
+    text-decoration: underline;
+}
 
 @media (max-width: 768px) {
 
@@ -608,4 +644,55 @@ footer > p {
     .contact dd {
         margin-bottom: 0.75rem;
     }
+}
+
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: var(--bg-c);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    max-width: 500px;
+    margin-top: 2rem;
+}
+
+form label {
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    display: block;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-c);
+    border-radius: 8px;
+    color: var(--text-c);
+    font-family: var(--font-body);
+    font-size: 1rem;
+}
+
+form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+form input:focus,
+form textarea:focus {
+    outline: none;
+    border-color: var(--accent-c);
+}
+
+form button {
+    align-self: flex-start;
 }
