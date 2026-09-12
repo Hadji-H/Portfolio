@@ -48,12 +48,29 @@ if (form) {
         if (nom.value === "" || email.value === "" || message.value === "") {
             formMessage.textContent = "Merci de remplir tous les champs obligatoires.";
         } else {
-            formMessage.textContent = "Merci, votre message a bien été envoyé !";
+            fetch("https://formsubmit.co/ajax/hadji.hamada@hotmail.com", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    Nom: nom.value,
+                    Email: email.value,
+                    Téléphone: tel.value,
+                    Message: message.value
+                })
+            })
+            .then(function() {
+                formMessage.textContent = "Merci, votre message a bien été envoyé !";
+                form.reset();
+            })
+            .catch(function() {
+                formMessage.textContent = "Une erreur est survenue, réessayez plus tard.";
+            });
         }
     });
 }
 
 const canvas = document.querySelector("#bg-canvas");
+if(canvas) {
 const ctx = canvas.getContext("2d");
 
 canvas.width = window.innerWidth;
@@ -110,5 +127,5 @@ function animer() {
 
     requestAnimationFrame(animer);
 }
-
 animer();
+}
